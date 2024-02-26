@@ -3,6 +3,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Optional;
+import java.util.stream.IntStream;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -41,6 +42,19 @@ public class CircularListTest {
         this.list.add(1);
         this.list.next();
         assertEquals(this.list.previous(), Optional.of(0));
+    }
+
+
+    @Test
+    void testMultipleAddsAndNexts() {
+        this.list.add(0);
+        this.list.add(1);
+        this.list.add(2);
+        assertAll(
+            () -> assertEquals(this.list.next(), Optional.of(0)),
+            () -> assertEquals(this.list.next(), Optional.of(1)),
+            () -> assertEquals(this.list.next(), Optional.of(2))
+        );        
     }
 
 }

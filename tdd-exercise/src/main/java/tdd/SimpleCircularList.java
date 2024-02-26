@@ -1,13 +1,17 @@
 package tdd;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class SimpleCircularList implements CircularList {
 
+    private int currentPosition = 0;
+    private List<Integer> list = new ArrayList<>();
+
     @Override
     public void add(int element) {
-        // TODO Auto-generated method stub
-        
+        this.list.add(element);
     }
 
     @Override
@@ -17,12 +21,12 @@ public class SimpleCircularList implements CircularList {
 
     @Override
     public Optional<Integer> next() {
-        return Optional.of(0);
+        return Optional.of(this.list.get(this.currentPosition++));
     }
 
     @Override
     public Optional<Integer> previous() {
-        return Optional.of(0);
+        return Optional.of(this.list.get(--this.currentPosition));
     }
 
     @Override
