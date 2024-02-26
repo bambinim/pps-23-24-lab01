@@ -34,7 +34,7 @@ public class CircularListTest {
     @Test
     void testAddAndNext() {
         this.list.add(0);
-        assertEquals(this.list.next(), Optional.of(0));
+        assertEquals(Optional.of(0), this.list.next());
     }
 
     @Test
@@ -42,7 +42,7 @@ public class CircularListTest {
         this.list.add(0);
         this.list.add(1);
         this.list.next();
-        assertEquals(this.list.previous(), Optional.of(0));
+        assertEquals(Optional.of(0), this.list.previous());
     }
 
 
@@ -52,9 +52,9 @@ public class CircularListTest {
         this.list.add(1);
         this.list.add(2);
         assertAll(
-            () -> assertEquals(this.list.next(), Optional.of(0)),
-            () -> assertEquals(this.list.next(), Optional.of(1)),
-            () -> assertEquals(this.list.next(), Optional.of(2))
+            () -> assertEquals(Optional.of(0), this.list.next()),
+            () -> assertEquals(Optional.of(1), this.list.next()),
+            () -> assertEquals(Optional.of(2), this.list.next())
         );        
     }
 
@@ -62,7 +62,7 @@ public class CircularListTest {
     void testSize() {
         this.list.add(0);
         this.list.add(1);
-        assertEquals(this.list.size(), 2);
+        assertEquals(2, this.list.size());
     }
 
     @Test
@@ -79,7 +79,7 @@ public class CircularListTest {
         this.list.next();
         this.list.next();
         this.list.reset();
-        assertEquals(this.list.next(), Optional.of(0));
+        assertEquals(Optional.of(0), this.list.next());
     }
 
     @Test
@@ -88,14 +88,14 @@ public class CircularListTest {
         this.list.add(1);
         this.list.next();
         this.list.next();
-        assertEquals(this.list.next(), Optional.of(0));
+        assertEquals(Optional.of(0), this.list.next());
     }
 
     @Test
     void testPreviousOnFirstElement() {
         this.list.add(0);
         this.list.add(1);
-        assertEquals(this.list.previous(), Optional.of(1));
+        assertEquals(Optional.of(1), this.list.previous());
     }
 
 }
