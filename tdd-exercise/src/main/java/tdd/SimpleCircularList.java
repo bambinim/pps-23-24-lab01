@@ -31,8 +31,7 @@ public class SimpleCircularList implements CircularList {
 
     @Override
     public void reset() {
-        // TODO Auto-generated method stub
-        
+        this.currentPosition = 0;
     }
 
     @Override
