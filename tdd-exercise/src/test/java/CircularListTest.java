@@ -1,5 +1,6 @@
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Optional;
@@ -62,6 +63,12 @@ public class CircularListTest {
         this.list.add(0);
         this.list.add(1);
         assertEquals(this.list.size(), 2);
+    }
+
+    @Test
+    void testNonEmpty() {
+        this.list.add(0);
+        assertFalse(this.list.isEmpty());
     }
 
 }
