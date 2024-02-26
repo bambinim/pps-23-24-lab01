@@ -35,4 +35,12 @@ public class CircularListTest {
         assertEquals(this.list.next(), Optional.of(0));
     }
 
+    @Test
+    void testPrevious() {
+        this.list.add(0);
+        this.list.add(1);
+        this.list.next();
+        assertEquals(this.list.previous(), Optional.of(0));
+    }
+
 }

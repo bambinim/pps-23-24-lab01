@@ -22,8 +22,7 @@ public class SimpleCircularList implements CircularList {
 
     @Override
     public Optional<Integer> previous() {
-        // TODO Auto-generated method stub
-        return Optional.empty();
+        return Optional.of(0);
     }
 
     @Override
