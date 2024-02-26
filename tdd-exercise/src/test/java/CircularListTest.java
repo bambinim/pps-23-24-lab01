@@ -82,4 +82,13 @@ public class CircularListTest {
         assertEquals(this.list.next(), Optional.of(0));
     }
 
+    @Test
+    void testNextCircularity() {
+        this.list.add(0);
+        this.list.add(1);
+        this.list.next();
+        this.list.next();
+        assertEquals(this.list.next(), Optional.of(0));
+    }
+
 }
