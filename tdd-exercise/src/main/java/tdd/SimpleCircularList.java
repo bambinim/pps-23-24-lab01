@@ -28,7 +28,8 @@ public class SimpleCircularList implements CircularList {
 
     @Override
     public Optional<Integer> previous() {
-        return Optional.of(this.list.get(--this.currentPosition));
+        this.currentPosition = this.currentPosition - 1 >= 0 ? this.currentPosition - 1 : this.list.size() - 1;
+        return Optional.of(this.list.get(this.currentPosition));
     }
 
     @Override
