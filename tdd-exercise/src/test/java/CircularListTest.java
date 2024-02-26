@@ -57,4 +57,11 @@ public class CircularListTest {
         );        
     }
 
+    @Test
+    void testSize() {
+        this.list.add(0);
+        this.list.add(1);
+        assertEquals(this.list.size(), 2);
+    }
+
 }
