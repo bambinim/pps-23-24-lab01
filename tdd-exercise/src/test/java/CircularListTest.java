@@ -98,4 +98,12 @@ public class CircularListTest {
         assertEquals(Optional.of(1), this.list.previous());
     }
 
+    @Test
+    void testNextAndPreviousOnEmptyList() {
+        assertAll(
+            () -> assertEquals(Optional.empty(), this.list.next()),
+            () -> assertEquals(Optional.empty(), this.list.previous())
+        );
+    }
+
 }
