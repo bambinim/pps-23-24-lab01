@@ -30,7 +30,7 @@ public class CircularListTest {
     @Test
     void testAddAndNext() {
         this.list.add(0);
-        assertEquals(Optional.of(0), this.list.next());
+        assertEquals(0, this.list.next().get());
     }
 
     @Test
@@ -38,7 +38,7 @@ public class CircularListTest {
         this.list.add(0);
         this.list.add(1);
         this.list.next();
-        assertEquals(Optional.of(0), this.list.previous());
+        assertEquals(0, this.list.previous().get());
     }
 
 
@@ -48,9 +48,9 @@ public class CircularListTest {
         this.list.add(1);
         this.list.add(2);
         assertAll(
-            () -> assertEquals(Optional.of(0), this.list.next()),
-            () -> assertEquals(Optional.of(1), this.list.next()),
-            () -> assertEquals(Optional.of(2), this.list.next())
+            () -> assertEquals(0, this.list.next().get()),
+            () -> assertEquals(1, this.list.next().get()),
+            () -> assertEquals(2, this.list.next().get())
         );        
     }
 
@@ -75,7 +75,7 @@ public class CircularListTest {
         this.list.next();
         this.list.next();
         this.list.reset();
-        assertEquals(Optional.of(0), this.list.next());
+        assertEquals(0, this.list.next().get());
     }
 
     @Test
@@ -84,21 +84,21 @@ public class CircularListTest {
         this.list.add(1);
         this.list.next();
         this.list.next();
-        assertEquals(Optional.of(0), this.list.next());
+        assertEquals(0, this.list.next().get());
     }
 
     @Test
     void testPreviousOnFirstElement() {
         this.list.add(0);
         this.list.add(1);
-        assertEquals(Optional.of(1), this.list.previous());
+        assertEquals(1, this.list.previous().get());
     }
 
     @Test
     void testNextAndPreviousOnEmptyList() {
         assertAll(
-            () -> assertEquals(Optional.empty(), this.list.next()),
-            () -> assertEquals(Optional.empty(), this.list.previous())
+            () -> assertTrue(this.list.next().isEmpty()),
+            () -> assertTrue(this.list.previous().isEmpty())
         );
     }
 
